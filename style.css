@@ -8,19 +8,8 @@ body {
 
 
 
+
 /* HEADER AND NAV ------------------------------*/
-
-#header {
-  height: 6vh;
-
-
-
-}
-
-#header li {
-  display: inline-flex;
-  padding: 0 20px;
-}
 
 #main_nav {
   display: inline-flex;
@@ -29,6 +18,7 @@ body {
 #main_nav a {
   color: black;
   text-decoration: none;
+  margin: 3em;
 }
 
 #main_nav a:visited {
@@ -41,6 +31,8 @@ body {
 	display: inline-block;
 	position: relative;
 	padding-bottom: 3px;
+  text-decoration: none;
+  color: black;
 }
 .sliding-middle-out:after {
 	content: '';
@@ -56,10 +48,10 @@ body {
 	background: black;
 }
 
-/* LANDING PAGE ------------------------------*/
+/* 'LANDING' PAGE ------------------------------*/
 
 #main-landing {
-  height: 84vh;
+  height: 100vh;
   width: 100%;
   display: inline-flex;
   flex-direction: column;
@@ -67,7 +59,20 @@ body {
   justify-content: center;
 }
 
-/* INTRO---------------------------------------------*/
+#nav {
+  margin-top: 2em;
+  min-width: 40%;
+}
+
+#nav a {
+  margin: 2em;
+
+}
+
+
+
+
+/* 'INTRO' PAGE-----------------------------------------*/
 
 #intro {
   height: 100vh;
@@ -78,7 +83,13 @@ body {
   align-items: center;
 }
 
-/* IMAGE TO HIDE-----------------------------*/
+#introtext {
+  width: 40%;
+  height: auto;
+
+}
+
+/* 'IMAGE TO HIDE' PAGE----------------------------*/
 
 #imageToHide {
   height: 100vh;
@@ -89,7 +100,7 @@ body {
   align-items: center;
 }
 
-/* IMAGE TO HIDE INSIDE OF--------------*/
+/* 'IMAGE TO HIDE INSIDE OF' PAGE--------------*/
 
 #imageHideInside {
   height: 100vh;
@@ -100,10 +111,10 @@ body {
   align-items: center;
 }
 
-/* IMAGE RESULT-----------------------------*/
+/* 'IMAGE RESULT' PAGE-----------------------------*/
 
 #imageResult {
-  height: 82vh;
+  height: 88vh;
   width: 100%;
   display: inline-flex;
   flex-direction: column;
@@ -135,5 +146,23 @@ body {
 #footer a:visited {
   text-decoration: none;
 
+
+}
+
+/* CANVAS ELEMENTS ------------------------------*/
+
+#canvasToHide {
+
+  max-height: 80%;
+  width: auto;
+  border: 1px solid gray;
+
+}
+
+#canvasHideInside{
+
+  max-height: 80%;
+  width: auto;
+  border: 1px solid gray;
 
 }

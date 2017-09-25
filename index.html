@@ -20,64 +20,83 @@
     <!-- HEADER -->
     <section id="1">
       <div id="header">
-      <!--NAV-->
-      <ul id="main_nav">
-        <li><a href="#" class="sliding-middle-out">Home</a></li>
-        <li><a href="#" class="sliding-middle-out">About</a></li>
-        <li><a href="#" class="sliding-middle-out">Portfolio</a></li>
-        <li><a href="#" class="sliding-middle-out">Contact</a></li>
-      </ul>
+
 
     </div>
     <!--MAIN LANDING PAGE -->
       <div id="main-landing">
         <h1>Simple Steganography Converter</h1>
         <br>
-        <h6>Hand-crafted by <a href = "http://aramxc.github.io" target="_blank">Aaron Ramirez</a></h6>
-      </div>
-      <a href="#2" class = "smoothScroll">Next</a>
+        <h6>An open-source project crafted by <a href = "http://aramxc.github.io" target="_blank">Aaron Ramirez</a></h6>
+
+    <div id="main_nav">
+      <a href="#2" class = "smoothScroll sliding-middle-out">About</a>
+      <a href="#3" class = "smoothScroll sliding-middle-out">Conceal an Image</a>
+
+  </div>
+    </div>
     </section>
     <!--INTRO -->
     <section id="2">
       <div id="intro">
 
-        <a href="#1" class = "smoothScroll">Previous</a>
+        <a href="#1" class = "smoothScroll sliding-middle-out">Previous</a>
+        <div id="introtext">
         <h1>What is Steganography?</h1>
 
-        <a href="#3" class = "smoothScroll">Next</a>
+        <h3>From Wikipedia:</h3>
+        <blockquote cite="https://en.wikipedia.org/wiki/Steganography">
+          "<strong>Steganography</strong> (pronounced <em>STEG-ə-NOG-rə-fee </em>)
+          is the practice of concealing a file, message, image, or video within another file,
+          message, image, or video. The word steganography combines the Greek words
+          steganos (στεγανός), meaning 'covered, concealed, or protected,' and
+          graphein (γράφειν) meaning 'writing'."
+        </blockquote>
+        <h3>At a basic level, Steganography on the web involves taking an image you wish to conceal,
+        grabbing each pixel's significant digits (i.e. the first 3 digits of a hex color code) and setting those values as the least significant
+         digits (i.e. the last 3 digits of a hex color code) for each pixel of the image you wish to conceal it within.</h4>
+         <h3>Sound confusing? Give it a try below!</h3>
+</div>
+        <a href="#3" class = "smoothScroll sliding-middle-out">Next</a>
       </div>
     </section>
     <!--IMAGE TO HIDE -->
     <section id="3">
       <div id="imageToHide">
-        <a href="#2" class = "smoothScroll">Previous</a>
+        <a href="#2" class = "smoothScroll sliding-middle-out">Previous</a>
         <h1>Hide this image..</h1>
+          <input type="file" multiple="false" accept="image/*" id="inputToHide" onchange="uploadAndConvert()">
+        <canvas id="canvasToHide">
 
-        <a href="#4" class = "smoothScroll">Next</a>
+        </canvas>
+        <a href="#4" class = "smoothScroll sliding-middle-out">Next</a>
       </div>
     </section>
     <!--IMAGE TO HIDE INSIDE OF -->
     <section id="4">
       <div id="imageHideInside">
-        <a href="#3" class = "smoothScroll">Previous</a>
+        <a href="#3" class = "smoothScroll sliding-middle-out">Previous</a>
         <h1>Inside of this image..</h1>
+        <input type="file" multiple="false" accept="image/*" id="inputHideInside" onchange="uploadAndConvert()">
+      <canvas id="canvasHideInside">
 
-        <a href="#5" class = "smoothScroll">Next</a>
+      </canvas>
+        <a href="#5" class = "smoothScroll sliding-middle-out">Next</a>
       </div>
     </section>
     <!--RESULTS -->
     <section id="5">
       <div id="imageResult">
-        <a href="#4" class = "smoothScroll">Previous</a>
+        <a href="#4" class = "smoothScroll sliding-middle-out">Previous</a>
         <h1>Result</h1>
 
-      <a href="#1" class = "smoothScroll">Go back to the beginning</a>
+      <a href="#1" class = "smoothScroll sliding-middle-out">Home</a>
       </div>
     </section>
     <!--FOOTER-->
 
     <div id="footer">
-      <h6>Hand-crafted by <a href = "http://aramxc.github.io" target="_blank">Aaron Ramirez</a> &copy 2017.</h6>
+      <h6>This open-source project and others hand-crafted by <a href = "http://aramxc.github.io" target="_blank">Aaron Ramirez</a> &copy 2017.</h6>
     </div>
   </div>
 </body>
