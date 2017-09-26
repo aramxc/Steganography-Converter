@@ -65,7 +65,7 @@
       <div id="imageToHide">
         <a href="#2" class = "smoothScroll sliding-middle-out">Previous</a>
         <h1>Hide this image..</h1>
-          <input type="file" multiple="false" accept="image/*" id="inputToHide" onchange="uploadAndConvert()">
+          <input type="file" multiple="false" accept="image/*" id="inputToHide" onchange="uploadAndCut()">
         <canvas id="canvasToHide">
 
         </canvas>
@@ -77,11 +77,11 @@
       <div id="imageHideInside">
         <a href="#3" class = "smoothScroll sliding-middle-out">Previous</a>
         <h1>Inside of this image..</h1>
-        <input type="file" multiple="false" accept="image/*" id="inputHideInside" onchange="uploadAndConvert()">
+        <input type="file" multiple="false" accept="image/*" id="inputHideInside" onchange="uploadAndShift()">
       <canvas id="canvasHideInside">
 
       </canvas>
-        <a href="#5" class = "smoothScroll sliding-middle-out">Next</a>
+        <a href="#5" class = "smoothScroll sliding-middle-out" onclick="viewResult()">View Result</a>
       </div>
     </section>
     <!--RESULTS -->
@@ -89,6 +89,9 @@
       <div id="imageResult">
         <a href="#4" class = "smoothScroll sliding-middle-out">Previous</a>
         <h1>Result</h1>
+        <canvas id="canvasResult">
+
+        </canvas>
 
       <a href="#1" class = "smoothScroll sliding-middle-out">Home</a>
       </div>

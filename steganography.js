@@ -1,4 +1,3 @@
-
 var imageToHide;
 var imageHideInside;
 
@@ -32,7 +31,7 @@ function uploadImageHideInside() {
 
 }
 
-//Math helper function to call inside of convertToHide function:
+//Math helper function to call inside of cutImage function:
 function clearBits(pixval) {
 
   var x = Math.floor(pixval / 16) * 16; //multiply by 16 to clear insignificant bits
@@ -40,7 +39,7 @@ function clearBits(pixval) {
 
 }
 
-function convertToHide(imageToHide) {
+function cutImage(imageToHide) {
 
   //iterate over each pixel and call clearBits() for RGB values
   for (var pixel of imageToHide.values()) {
@@ -55,13 +54,94 @@ function convertToHide(imageToHide) {
     pixel.setBlue(clearBits(pixel.getBlue()));
   }
 
-  //return the resulting cleared image
+  //return the resulting cut image
   return imageToHide;
 
 }
 
-// Function called when user uploads a new image
-function uploadAndConvert() {
+function shiftImage(imageHideInside) {
+
+  //iterate over each pixel and shift significant bits over
+  for (var pixel of imageHideInside) {
+
+    //shift red bits over
+    pixel.setRed(pixel.getRed() / 16);
+
+    //shift green bits over
+    pixel.setGreen(pixel.getGreen() / 16);
+
+    //shift blue bits over
+    pixel.setBlue(pixel.getBlue() / 16);
+
+  }
+
+  //return the resulting cut image
+  return imageHideInside;
+}
+
+function combine(imageToHide, imageHideInside) {
+
+  var combinedImage = new SimpleImage(imageHideInside.getWidth(), imageHideInside.getHeight());
+
+  //iterate over each pixel
+  for (var pixel of combinedImage.values()) {
+
+    //get x and y of each pixel
+    var x = pixel.getX();
+    var y = pixel.getY();
+
+    //get x and y of var show pixels
+    var imageHideInsidePixel = imageHideInside.getPixel(x, y);
+
+    //get the corresponding pixel in imageToHide
+    var imageToHidePixel = imageToHide.getPixel(x, y);
+
+    /*set the red pixels to the sum of imageToHide's red pixels
+     * and imageHideInside's red pixels:
+     */
+    pixel.setRed(imageHideInsidePixel.getRed() + imageToHidePixel.getRed());
+
+    /*set the green pixels to the sum of imageToHide's green pixels
+     * and imageHideInside's green pixels:
+     */
+    pixel.setGreen(imageHideInsidePixel.getGreen() + imageToHidePixel.getGreen());
+
+    /*set the blue pixels to the sum of imageToHide's blue pixels
+     * and imageHideInside's blue pixels:
+     */
+    pixel.setBlue(imageHideInsidePixel.getBlue() + imageToHidePixel.getBlue());
+  }
+
+  //return the resulting image
+  return combinedImage;
+}
+
+// Function called when user uploads image in step 1
+function uploadAndCut() {
   uploadImageToHide(); //upload and draw image to canvas
-  convertToHide(imageToHide); //convert image and save to var imageToHide
+  cutImage(imageToHide); //convert image and save to var imageToHide
+
+}
+
+//Function called when user uploads image in step 2
+function uploadAndShift() {
+  uploadImageHideInside(); //upload and draw image to canvas
+  shiftImage(imageHideInside); //convert image and save to var imageHideInside
+
+}
+
+function viewResult() {
+  if (imageToHide != null && imageHideInside != null) {
+
+    //combine results from cutImage() and shiftImage(), returns combinedImage
+    combine(imageToHide, imageHideInside);
+
+    //draw combinedImage to result canvas
+    var canvasResult = document.getElementById('canvasResult');
+    var contextResult = canvasResult.getContext('2d');
+    combinedImage.drawTo(canvasResult);
+  } else {
+    alert('Error');
+
+  }
 }

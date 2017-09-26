@@ -3,7 +3,7 @@ body {
   text-align: center;
   font-family: 'Roboto', sans-serif;
   font-size: 1em;
-
+  overflow: hidden;
 }
 
 
@@ -160,6 +160,14 @@ body {
 }
 
 #canvasHideInside{
+
+  max-height: 80%;
+  width: auto;
+  border: 1px solid gray;
+
+}
+
+#canvasResult{
 
   max-height: 80%;
   width: auto;
